@@ -40,7 +40,7 @@ const allCategoriesData = content.categories && generateCategoryData(content.cat
 			<article>
 				<ul>
 					{allCategoriesData && allCategoriesData.map(category => (
-						<li><a href={`/blog/category/${category.slug}`}>{category.name}</a></li>
+						<li><a href={`/blog/categories/${category.slug}`}>{category.name}</a></li>
 						))}
 				</ul>
 				{content.heroImage && (

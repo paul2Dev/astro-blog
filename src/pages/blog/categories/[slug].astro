@@ -1,0 +1,40 @@
+---
+import Baselayout from '../../../layouts/Base.astro'
+import {generateCategoryData} from '../../../utils/helpers.js'
+import Posts from '../../../components/blog/Posts.astro'
+
+
+export async function getStaticPaths() {
+	const posts = (await Astro.glob('../*.{md,mdx}')).sort(
+		(a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+	);
+
+    const categories = new Set();
+    posts.map(post => {
+        post.frontmatter.categories && post.frontmatter.categories.map(category => {
+            categories.add(category)
+        })
+    })
+    const uniqueCategories = generateCategoryData(categories);
+
+	return uniqueCategories.map((category) => {
+        // filter the posts that match the given category
+        const categoryPosts = posts.filter((post) => post.frontmatter.categories.includes(category.name))
+        return {
+            params: {slug: category.slug}, 
+            props: {
+                category: category.name, 
+                posts: categoryPosts
+            }
+        };
+    });
+}
+
+// All paginated data is passed on the "page" prop
+const {category, posts} = Astro.props
+---
+
+<Baselayout>
+    <h1>{category}</h1>
+    <Posts posts={posts} />
+</Baselayout>
