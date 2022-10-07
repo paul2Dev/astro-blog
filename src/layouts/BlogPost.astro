@@ -2,6 +2,7 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import {generateCategoryData} from '../utils/helpers.js'
 
 export interface Props {
 	content: {
@@ -10,17 +11,17 @@ export interface Props {
 		pubDate?: string;
 		updatedDate?: string;
 		heroImage?: string;
+		categories?: string;
 	};
 }
 
-const {
-	content: { title, description, pubDate, updatedDate, heroImage },
-} = Astro.props;
+const {content} = Astro.props;
+const allCategoriesData = content.categories && generateCategoryData(content.categories);
 ---
 
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead title={content.title} description={content.description} />
 		<style>
 			.title {
 				font-size: 2em;
@@ -37,17 +38,22 @@ const {
 		<Header />
 		<main>
 			<article>
-				{heroImage && (
+				<ul>
+					{allCategoriesData && allCategoriesData.map(category => (
+						<li><a href={`/blog/category/${category.slug}`}>{category.name}</a></li>
+						))}
+				</ul>
+				{content.heroImage && (
 					<img
 						width={720}
 						height={360}
-						src={heroImage}
+						src={content.heroImage}
 						alt=""
 					/>
 				)}
-				<h1 class="title">{title}</h1>
-				{pubDate && <time>{pubDate}</time>}
-				{updatedDate && <div>Last updated on <time>{updatedDate}</time></div>}
+				<h1 class="title">{content.title}</h1>
+				{content.pubDate && <time>{content.pubDate}</time>}
+				{content.updatedDate && <div>Last updated on <time>{content.updatedDate}</time></div>}
 				<hr/>
 				<slot />
 			</article>

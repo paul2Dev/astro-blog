@@ -1,0 +1,27 @@
+---
+import Baselayout from '../../../layouts/Base.astro'
+import {generateCategoryData} from '../../../utils/helpers.js'
+
+const posts = await Astro.glob('../*.{md,mdx}');
+const categories = new Set();
+
+posts.map(post => {
+    post.frontmatter.categories && post.frontmatter.categories.map(category => {
+        categories.add(category);
+    })
+})
+
+
+const uniqueCategories = generateCategoryData(categories);
+
+// All paginated data is passed on the "page" prop
+const { page } = Astro.props;
+---
+
+<Baselayout>
+    <ul>
+    {uniqueCategories && uniqueCategories.map(category => (
+        <li><a href={`/blog/category/${category.slug}`}>{category.name}</a></li>
+    ))}
+    </ul>
+</Baselayout>

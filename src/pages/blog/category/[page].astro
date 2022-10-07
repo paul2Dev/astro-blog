@@ -1,0 +1,37 @@
+---
+import Baselayout from '../../../layouts/Base.astro'
+import Paginator from '../../../components/Paginator.astro'
+import {generateCategoryData} from '../../../utils/helpers.js'
+
+
+export async function getStaticPaths({ paginate }) {
+	const posts = (await Astro.glob('../*.{md,mdx}')).sort(
+		(a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+	);
+
+    const categories = new Set();
+    posts.map(post => {
+        post.frontmatter.categories && post.frontmatter.categories.map(category => {
+            categories.add(category);
+        })
+    })
+    const uniqueCategories = generateCategoryData(categories);
+
+	// Generate pages from our array of astronauts, with 2 to a page
+	return paginate(posts, { pageSize: 3 });
+}
+
+
+
+
+// All paginated data is passed on the "page" prop
+const { page } = Astro.props;
+---
+
+<Baselayout>
+    <ul>
+    {uniqueCategories && uniqueCategories.map(category => (
+        <li><a href={`/blog/category/${category.slug}`}>{category.name}</a></li>
+    ))}
+    </ul>
+</Baselayout>
