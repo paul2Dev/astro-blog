@@ -30,11 +30,14 @@ export async function getStaticPaths() {
     });
 }
 
+
+
 // All paginated data is passed on the "page" prop
 const {category, posts} = Astro.props
+const description = category + ' description content'
 ---
 
-<Baselayout>
+<Baselayout title={category} description={description}>
     <h1>{category}</h1>
     <Posts posts={posts} />
 </Baselayout>

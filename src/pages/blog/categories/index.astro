@@ -14,11 +14,14 @@ posts.map(post => {
 
 const uniqueCategories = generateCategoryData(categories);
 
+const title = 'Blog Categories'
+const description = 'blog categories content description'
+
 // All paginated data is passed on the "page" prop
 const { page } = Astro.props;
 ---
 
-<Baselayout>
+<Baselayout title={title} description={description}>
     <ul>
     {uniqueCategories && uniqueCategories.map(category => (
         <li><a href={`/blog/categories/${category.slug}`}>{category.name}</a></li>

@@ -1,8 +1,9 @@
 ---
-import Base from '../layouts/Base.astro';
+import Baselayout from '../layouts/Base.astro'
+import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 ---
 
-<Base>
+<Baselayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <h1>🧑‍🚀 Hello, Astronaut!</h1>
   <p>
     Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
@@ -34,4 +35,4 @@ import Base from '../layouts/Base.astro';
       >astro-blog-template
     </a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
   </p>
-</Base>
+</Baselayout>

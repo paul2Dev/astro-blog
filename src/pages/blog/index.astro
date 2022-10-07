@@ -6,9 +6,12 @@ const posts = (await Astro.glob('./*.{md,mdx}')).sort(
     (a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
 );
 
+const title = 'Blog'
+const description = 'blog content description'
+
 const { page } = Astro.props;
 ---
 
-<Baselayout>
+<Baselayout title={title} description={description}>
     <Posts posts={posts} />
 </Baselayout>
