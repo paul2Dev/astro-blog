@@ -1,7 +1,7 @@
 ---
 import {generateCategoryData} from '../utils/helpers.js'
 
-const { posts } = Astro.props;
+const { posts, links } = Astro.props;
 
 const categories = new Set()
 
@@ -16,6 +16,8 @@ const uniqueCategories = generateCategoryData(categories)
 
 <ul class="categories">
     {uniqueCategories && uniqueCategories.map(category => (
-        <li><a href={`/category/${category.slug}`}>{category.name}</a></li>
+        <li>
+            {links ? <a href={`/category/${category.slug}`}>{category.name}</a> : category.name}
+        </li>
     ))}
 </ul>

@@ -14,6 +14,6 @@ const { page } = Astro.props
 ---
 
 <Baselayout title={title} description={description}>
-    <CategoriesList posts={posts} />
+    <CategoriesList posts={posts} links={true}/>
     <PostsList posts={posts} />
 </Baselayout>

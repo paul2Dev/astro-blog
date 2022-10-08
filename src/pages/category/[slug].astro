@@ -40,7 +40,7 @@ const description = category + ' description content'
 ---
 
 <Baselayout title={category} description={description}>
-    <CategoriesList posts={allPosts} />
+    <CategoriesList posts={allPosts} links={true} />
     <h1>{category}</h1>
     <PostsList posts={posts} />
 </Baselayout>

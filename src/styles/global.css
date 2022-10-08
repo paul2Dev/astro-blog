@@ -59,16 +59,28 @@ article p {
 	@apply text-base text-slate-600
 }
 
+.posts h2 {
+	@apply mt-2 mb-0
+}
+
 article time {
 	@apply text-xs text-white bg-slate-500 rounded-sm p-1 my-2
 }
 
 .posts time {
-	@apply text-xs text-white bg-slate-500 rounded-sm p-1
+	@apply text-xs font-bold text-slate-400
+}
+
+.posts p {
+	@apply mt-4
 }
 
 .categories {
 	@apply list-none flex gap-2 p-0
+}
+
+.posts .categories {
+	@apply mt-2
 }
 
 .categories li {
