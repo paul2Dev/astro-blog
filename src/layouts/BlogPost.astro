@@ -22,16 +22,6 @@ const allCategoriesData = content.categories && generateCategoryData(content.cat
 <html lang="en">
 	<head>
 		<BaseHead title={content.title} description={content.description} />
-		<style>
-			.title {
-				font-size: 2em;
-				margin: 0.25em 0 0;
-			}
-			hr {
-  				border-top: 1px solid #DDD;
-				margin: 1rem 0;
-			}
-		</style>
 	</head>
 
 	<body>
@@ -40,7 +30,7 @@ const allCategoriesData = content.categories && generateCategoryData(content.cat
 			<article>
 				<ul>
 					{allCategoriesData && allCategoriesData.map(category => (
-						<li><a href={`/blog/categories/${category.slug}`}>{category.name}</a></li>
+						<li><a href={`/category/${category.slug}`}>{category.name}</a></li>
 						))}
 				</ul>
 				{content.heroImage && (

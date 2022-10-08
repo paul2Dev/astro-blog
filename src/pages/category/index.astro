@@ -1,6 +1,6 @@
 ---
-import Baselayout from '../../../layouts/Base.astro'
-import {generateCategoryData} from '../../../utils/helpers.js'
+import Baselayout from '../../layouts/Base.astro'
+import {generateCategoryData} from '../../utils/helpers.js'
 
 const posts = await Astro.glob('../*.{md,mdx}');
 const categories = new Set();
@@ -24,7 +24,7 @@ const { page } = Astro.props;
 <Baselayout title={title} description={description}>
     <ul>
     {uniqueCategories && uniqueCategories.map(category => (
-        <li><a href={`/blog/categories/${category.slug}`}>{category.name}</a></li>
+        <li><a href={`/category/${category.slug}`}>{category.name}</a></li>
     ))}
     </ul>
 </Baselayout>
