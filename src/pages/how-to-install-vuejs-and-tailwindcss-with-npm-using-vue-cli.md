@@ -1,7 +1,7 @@
 ---
 layout: "../layouts/BlogPost.astro"
 title: "How to install VueJS and TailwindCSS with npm using vue cli"
-description: "the easy way to setup your VueJS project with TailwindCSS. the easy way to setup your VueJS project with TailwindCSS. the easy way to setup your VueJS project with TailwindCSS."
+description: "the easy way to setup your VueJS project with TailwindCSS."
 pubDate: "Aug 08 2021"
 heroImage: ""
 categories: 
@@ -95,7 +95,7 @@ export default {
 </script>
 ```
 
-let’s test it out by adding a html tag in our ./scr/App.vue file:
+let’s test it out by adding a html tag in our **./scr/App.vue** file:
 
 ```html
 <template>
