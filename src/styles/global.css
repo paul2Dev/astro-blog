@@ -63,9 +63,14 @@ article p {
 	@apply mt-2 mb-0
 }
 
+.posts div {
+	@apply my-8
+}
+
 article time {
 	@apply text-xs text-white bg-slate-500 rounded-sm p-1 my-2
 }
+
 
 .posts time {
 	@apply text-xs font-bold text-slate-400

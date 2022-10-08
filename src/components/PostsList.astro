@@ -4,6 +4,7 @@ const { posts } = Astro.props;
 ---
 <div class="posts">
     {posts.map((post) => (
+        <div>
             <h2>
                 <a href={post.url}>
                     {post.frontmatter.title}
@@ -23,5 +24,6 @@ const { posts } = Astro.props;
 
             <p>{post.frontmatter.description}</p>
             <a href={post.url}>Read more</a>
+        </div>
     ))}
 </div>
