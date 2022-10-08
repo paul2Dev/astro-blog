@@ -1,0 +1,38 @@
+---
+const { posts } = Astro.props;
+---
+<div class="posts">
+    {posts.map((post) => (
+        <div class="posts">
+            <h2>
+                <a href={post.url}>
+                    {post.frontmatter.title}
+                </a>
+            </h2>
+            <div class="grid grid-cols-4">
+                <div class="text-center justify-self-center">
+                    <a href={post.url}>
+                        <img 
+                        class="mb-4"
+                        width={150}
+                        height={150}
+                        src={post.frontmatter.heroImage ? post.frontmatter.heroImage : '/placeholder-hero.jpg'} 
+                        alt={post.frontmatter.title}>
+                    </a>
+                    <time
+                    datetime={post.frontmatter.pubDate}>
+                        {new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric',
+                        })}
+                    </time>
+                </div>
+                <div class="col-span-3">
+                    <p>{post.frontmatter.description}</p>
+                    <a href={post.url}>Read more</a>
+                </div>
+            </div>    
+        </div>
+    ))}
+</div>

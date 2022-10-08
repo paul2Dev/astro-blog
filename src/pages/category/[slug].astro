@@ -1,7 +1,8 @@
 ---
 import Baselayout from '../../layouts/Base.astro'
+import PostsList from '../../components/PostsList.astro'
+import CategoriesList from '../../components/CategoriesList.astro'
 import {generateCategoryData} from '../../utils/helpers.js'
-import Posts from '../../components/blog/Posts.astro'
 
 
 export async function getStaticPaths() {
@@ -24,7 +25,8 @@ export async function getStaticPaths() {
             params: {slug: category.slug}, 
             props: {
                 category: category.name, 
-                posts: categoryPosts
+                posts: categoryPosts,
+                allPosts: posts
             }
         };
     });
@@ -33,11 +35,12 @@ export async function getStaticPaths() {
 
 
 // All paginated data is passed on the "page" prop
-const {category, posts} = Astro.props
+const {category, posts, allPosts} = Astro.props
 const description = category + ' description content'
 ---
 
 <Baselayout title={category} description={description}>
+    <CategoriesList posts={allPosts} />
     <h1>{category}</h1>
-    <Posts posts={posts} />
+    <PostsList posts={posts} />
 </Baselayout>

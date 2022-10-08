@@ -1,0 +1,155 @@
+/*
+  The CSS in this style tag is based off of Bear Blog's default CSS.
+  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
+  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
+ */
+body {
+	font-family: "IBM Plex Sans";
+	margin: auto;
+	padding: 20px;
+	max-width: 80ch;
+
+
+
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong,
+b {
+	@apply text-slate-700 font-bold
+}
+
+h1,
+h2,
+h3
+{
+	@apply my-4
+}
+
+h1 {
+	@apply text-2xl
+}
+
+h1 a {
+	@apply text-2xl text-slate-700 font-bold	
+}
+
+h2 a {
+	@apply text-xl text-slate-700 font-bold	
+}
+
+h2 {
+	@apply text-xl
+}
+
+h3 {
+	@apply text-lg
+}
+
+
+article p {
+	@apply text-base text-slate-600 my-2
+}
+
+.posts p {
+	@apply text-base text-slate-600
+}
+
+article time {
+	@apply text-xs text-white bg-slate-500 rounded-sm p-1 my-2
+}
+
+.posts time {
+	@apply text-xs text-white bg-slate-500 rounded-sm p-1
+}
+
+.categories {
+	@apply list-none flex gap-2 p-0
+}
+
+.categories li {
+	@apply border border-slate-500 rounded p-1 text-sm font-bold
+}
+
+.categories li a{
+	@apply text-slate-600
+}
+
+.categories li a:hover{
+	@apply text-slate-600 text-green-600
+}
+
+
+
+ol {
+	@apply pl-10 list-decimal text-slate-600
+}
+
+ul {
+	@apply pl-8 list-disc text-slate-600
+}
+
+a {
+	@apply text-sm text-green-600
+}
+
+mark {
+	@apply text-sm text-white bg-slate-600
+}
+
+kbd {
+	@apply text-sm text-white bg-slate-600 rounded px-2
+}
+
+::selection {
+	@apply text-white bg-slate-600	
+}
+
+
+
+article img, .posts img {
+	@apply rounded shadow-md shadow-slate-500
+}
+
+nav a {
+	margin-right: 10px;
+}
+textarea {
+	width: 100%;
+	font-size: 16px;
+}
+input {
+	font-size: 16px;
+}
+content {
+	line-height: 1.6;
+}
+table {
+	width: 100%;
+}
+img {
+	max-width: 100%;
+	height: auto;
+}
+code {
+	padding: 2px 5px;
+	background-color: #f2f2f2;
+}
+pre {
+	padding: 1rem;
+	@apply rounded-lg my-4;
+}
+pre > code {
+	all: unset;
+}
+blockquote {
+	border: 1px solid #999;
+	color: #222;
+	padding: 2px 0px 2px 20px;
+	margin: 0px;
+	font-style: italic;
+}

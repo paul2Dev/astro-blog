@@ -1,0 +1,21 @@
+---
+import {generateCategoryData} from '../utils/helpers.js'
+
+const { posts } = Astro.props;
+
+const categories = new Set()
+
+posts.map(post => {
+    post.frontmatter.categories && post.frontmatter.categories.map(category => {
+        categories.add(category);
+    })
+})
+
+const uniqueCategories = generateCategoryData(categories)
+---
+
+<ul class="categories">
+    {uniqueCategories && uniqueCategories.map(category => (
+        <li><a href={`/category/${category.slug}`}>{category.name}</a></li>
+    ))}
+</ul>

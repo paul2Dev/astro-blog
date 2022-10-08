@@ -1,22 +1,11 @@
 ---
 import Baselayout from '../layouts/Base.astro'
-import Posts from '../components/blog/Posts.astro'
-import {generateCategoryData} from '../utils/helpers.js'
+import PostsList from '../components/PostsList.astro'
+import CategoriesList from '../components/CategoriesList.astro'
 
 const posts = (await Astro.glob('./*.{md,mdx}')).sort(
     (a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
 );
-
-const categories = new Set()
-
-posts.map(post => {
-    post.frontmatter.categories && post.frontmatter.categories.map(category => {
-        categories.add(category);
-    })
-})
-
-
-const uniqueCategories = generateCategoryData(categories)
 
 const title = 'Blog'
 const description = 'blog content description'
@@ -25,10 +14,6 @@ const { page } = Astro.props
 ---
 
 <Baselayout title={title} description={description}>
-    <ul class="">
-        {uniqueCategories && uniqueCategories.map(category => (
-            <li>{category.name}</li>
-        ))}
-    </ul>
-    <Posts posts={posts} />
+    <CategoriesList posts={posts} />
+    <PostsList posts={posts} />
 </Baselayout>
