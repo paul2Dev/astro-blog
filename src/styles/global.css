@@ -30,6 +30,18 @@ h3
 	@apply my-4
 }
 
+h2.logo {
+	@apply my-0
+}
+
+h2.logo a{
+	@apply text-3xl
+}
+
+h2.logo span{
+	@apply text-xs ml-2 text-green-600
+}
+
 h1 {
 	@apply text-2xl
 }
@@ -49,6 +61,8 @@ h2 {
 h3 {
 	@apply text-lg
 }
+
+
 
 
 article p {
@@ -133,7 +147,8 @@ article img, .posts img {
 }
 
 nav a {
-	margin-right: 10px;
+	@apply mr-2 font-bold
+
 }
 textarea {
 	width: 100%;
