@@ -5,11 +5,8 @@
  */
 body {
 	font-family: "IBM Plex Sans";
-	margin: auto;
 	padding: 20px;
-	max-width: 80ch;
-
-
+	@apply bg-slate-100 max-w-screen-lg mx-auto;
 
 }
 h1,
@@ -63,7 +60,13 @@ h3 {
 }
 
 
+main {
+	@apply bg-white p-4 rounded shadow-xl shadow-slate-300 container 
+}
 
+footer {
+	@apply text-slate-700
+}
 
 article p {
 	@apply text-base text-slate-600 my-2
