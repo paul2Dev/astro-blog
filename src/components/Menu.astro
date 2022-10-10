@@ -12,9 +12,12 @@ const url = new URL(Astro.request.url);
     <span>{Config.siteTitle}</span>
 </a>
 <nav id="navigation-menu" aria-label="Main">
-    <a href="/" aria-current={url.pathname === "/" ? "page" : false}>Home</a>
-    <a href="/blog" aria-current={url.pathname === "/blog" ? "page" : false}
+    <a href="/" class={url.pathname === "/" ? "active" : ""} aria-current={url.pathname === "/" ? "page" : false}>Home</a>
+    <a href="/blog" class={url.pathname === "/blog" ? "active" : ""} aria-current={url.pathname === "/blog" ? "page" : false}
         >Blog
+    </a>
+    <a href="/projects" class={url.pathname === "/projects" ? "active" : ""} aria-current={url.pathname === "/blog" ? "page" : false}
+        >Projects
     </a>
     <a href="https://github.com/paul2Dev" target="_blank"
         >GitHub
@@ -27,6 +30,10 @@ const url = new URL(Astro.request.url);
 
         a {
             @apply px-4 sm:hover:underline;
+        }
+
+        a.active {
+            @apply font-bold underline;
         }
     }
 
