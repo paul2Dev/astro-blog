@@ -9,10 +9,36 @@ const { page } = Astro.props;
 ---
 
 <Baselayout title={title} description={description}>
-    <img src={heroImage} width={720} height={360} alt="" />
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi iure quibusdam excepturi molestiae, cupiditate nisi repudiandae at qui dolorem similique libero illo, neque nam reiciendis accusantium quo exercitationem inventore enim adipisci dicta, reprehenderit rem eaque corrupti aliquid. Quis sunt quod et earum praesentium asperiores aliquid, laudantium eveniet reiciendis veniam qui deleniti aperiam ut voluptatem maiores officiis voluptates totam provident optio. Porro consectetur fuga rerum delectus eveniet ad repellat ipsa sint inventore ratione saepe dolor quod, perspiciatis totam obcaecati magnam quibusdam rem ipsam quam non ab atque distinctio ut exercitationem? Suscipit assumenda aut, iste ipsum deserunt reiciendis vitae minima molestias minus!</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel magni mollitia aliquam itaque iste. Tenetur facere odio nobis ad iusto omnis ipsum rem cumque consequatur qui veritatis neque eveniet temporibus possimus nisi exercitationem, dolor rerum voluptatibus culpa labore eius? Laudantium repellat quidem quod. Quae sed nulla similique, exercitationem ipsum nam.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores esse quo fugit accusantium? Mollitia consectetur expedita et eaque adipisci quisquam?</p>
+    <div class="space-y-6">
+		<h1 class="title">About</h1>
+		<p>
+			Hi, my name is Paul, i'm a web developer with 10+ years experience in modern web technology stack, including PHP, HTML, CSS, Laravel, VueJS, jQuery, TailwindCSS, Bootstrap, NodeJS, MySQL, MongoDB, Git and more 
+		</p>
+		<div class="flex justify-center">
+			<img src={heroImage} alt={title}>
+		</div>
+		<p>Here are my some of my awesome built in features:</p>
+		<ul class="list-disc list-inside">
+			<li>I'm ultra fast as I'm a static site</li>
+			<li>I'm fully responsive</li>
+			<li>I come with a light and dark mode</li>
+			<li>I'm easy to customise and add additional content</li>
+			<li>I have Tailwind CSS styling</li>
+			<li>Shiki code syntax highlighting</li>
+		</ul>
+		<p>
+			Clone or fork my
+			<a
+				class="inline-block cactus-link"
+				href="https://github.com/paul2Dev?tab=repositories"
+				target="_blank"
+				rel="noopener noreferrer"
+				aria-label="github repository"
+			>
+				repos
+			</a> if you like me!
+		</p>
+	</div>
 </Baselayout>
 
 

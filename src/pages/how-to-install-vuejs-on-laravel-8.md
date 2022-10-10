@@ -4,14 +4,12 @@ title: "How to install VueJS on Laravel 8"
 description: "let’s install VueJS so you can use it in your Laravel project. we will install VueJS using laravel/ui package, it is easy this way, and laravel/ui will do all the configuration behind the scene."
 pubDate: "Aug 10 2021"
 heroImage: ""
-categories: 
-    - VueJS
-    - Laravel
+categories: ['VueJS', 'Laravel']
 --- 
 
 let’s install VueJS so you can use it in your Laravel project. we will install VueJS using laravel/ui package, it is easy this way, and laravel/ui will do all the configuration behind the scene.
 
-## Step 1 – Install Laravel via composer
+## Install Laravel via composer
 
 ```bash
 composer create-project laravel/laravel project-name
@@ -25,7 +23,7 @@ php artisan serve
 
 you’ve got laravel installed, now let’s install and configure VueJS via laravel/ui package.
 
-## Step 2 – Install VueJS via laravel/ui package
+## Install VueJS via laravel/ui package
 
 ```bash
 #install laravel/ui via composer

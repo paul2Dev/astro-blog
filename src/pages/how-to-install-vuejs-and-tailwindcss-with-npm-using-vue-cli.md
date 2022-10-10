@@ -4,14 +4,12 @@ title: "How to install VueJS and TailwindCSS with npm using vue cli"
 description: "the easy way to setup your VueJS project with TailwindCSS."
 pubDate: "Aug 08 2021"
 heroImage: ""
-categories: 
-    - Tailwindcss
-    - VueJS
+categories: ['TailwindCss', 'VueJS']
 ---
 
 here is an easy way to setup your VueJS project with TailwindCSS.
 
-## Step 1 – install VueJS
+## Install VueJS
 
 first you need to install vue cli using npm, if you don’t have it already.
 
@@ -54,7 +52,7 @@ npm run serve
 
 this will generate your local server on port 8080, you should see the link in your terminal. click on the link to view you VueJS app in browser.
 
-## Step 2 -Install TailwindCSS
+## Install TailwindCSS
 
 now let’s install TailwindCSS to use it in your VueJS app. open your terminal in your VueJS app folder and run this command:
 
@@ -75,7 +73,7 @@ Successfully installed plugin: vue-cli-plugin-tailwind
 
 and that is it, tailwind is now ready to be used in your project.
 
-## Step 3 – import TailwindCSS in your VueJS app component
+## Import TailwindCSS in your VueJS app component
 
 the last thing you have to do is to import tailwind in your app component:
 

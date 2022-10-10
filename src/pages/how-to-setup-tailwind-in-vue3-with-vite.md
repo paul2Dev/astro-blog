@@ -4,8 +4,7 @@ title: "How to setup tailwind in vue3 with vite"
 description: "the easy way yo setup tailwind in VueJs project."
 pubDate: "Sept 30 2022"
 heroImage: ""
-categories: 
-    - JavaScript
+categories: ['JavaScript']
 --- 
 
 ## Install vue with vite

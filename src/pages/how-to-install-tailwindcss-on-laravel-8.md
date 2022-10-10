@@ -4,14 +4,12 @@ title: "How to install TailwindCSS on Laravel 8"
 description: "let’s install TailwindCSS so you can use it in your Laravel project."
 pubDate: "Aug 09 2021"
 heroImage: ""
-categories: 
-    - Tailwindcss
-    - Laravel
+categories: ['TailwindCss', 'Laravel']
 --- 
 
 let’s install TailwindCSS so you can use it in your Laravel project.
 
-## Step 1 – Install Laravel via composer
+## Install Laravel via composer
 
 ```bash
 composer create-project laravel/laravel project-name
@@ -25,7 +23,7 @@ php artisan serve
 
 you’ve got laravel installed, now let’s install and configure TailwindCSS.
 
-## Step 2 – Install TailwindCSS
+## Install TailwindCSS
 
 ```bash
 npm install -D tailwindcss postcss autoprefixer

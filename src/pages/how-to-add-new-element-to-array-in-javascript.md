@@ -4,8 +4,7 @@ title: "How to add new element to array in JavaScript"
 description: "push() will add a new element of an array."
 pubDate: "Aug 17 2022"
 heroImage: ""
-categories: 
-    - JavaScript
+categories: ['JavaScript']
 --- 
 
 ```javascript

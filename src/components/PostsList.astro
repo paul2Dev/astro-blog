@@ -2,28 +2,34 @@
 import CategoriesList from '../components/CategoriesList.astro'
 const { posts } = Astro.props;
 ---
-<div class="posts">
+<div class="my-10">
     {posts.map((post) => (
-        <div>
-            <h2>
+        <div class="flex flex-col mb-8">
+            <h2 class="mb-4 text-xl title">
                 <a href={post.url}>
                     {post.frontmatter.title}
                 </a>
             </h2>
 
-            <time
-            datetime={post.frontmatter.pubDate}>
-                {new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
-                    year: 'numeric',
-                    month: 'short',
-                    day: 'numeric',
-                })}
-            </time>
+            <div class="flex gap-4">
+                <time
+                class="text-gray-500"
+                datetime={post.frontmatter.pubDate}>
+                    {new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric',
+                    })}
+                </time>
 
-            <CategoriesList posts={[post]} links={false} />
+                <CategoriesList posts={[post]} links={false} extraClass={'text-xs'} />
+            </div>
+            
 
-            <p>{post.frontmatter.description}</p>
-            <a href={post.url}>Read more</a>
+            <p class="my-2">{post.frontmatter.description}</p>
+            <h2>
+                <a class="text-accent" href={post.url}>Read more</a>
+            </h2>
         </div>
     ))}
 </div>

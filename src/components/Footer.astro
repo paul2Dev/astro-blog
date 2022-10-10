@@ -1,10 +1,10 @@
 ---
-import { SITE_TITLE } from '../config';
+import Config from '../config';
 const today = new Date();
 ---
 
 <footer>
-	&copy; {today.getFullYear()} {SITE_TITLE}. All rights reserved.
+	&copy; {today.getFullYear()} {Config.siteTitle}. All rights reserved.
 </footer>
 <style>
 	footer {

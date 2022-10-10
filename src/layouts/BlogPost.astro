@@ -3,6 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import {generateCategoryData} from '../utils/helpers.js'
+import Config from "../config";
 
 export interface Props {
 	content: {
@@ -15,18 +16,38 @@ export interface Props {
 	};
 }
 
-const {content} = Astro.props;
+const {content, headings} = Astro.props;
 const allCategoriesData = content.categories && generateCategoryData(content.categories);
 ---
 
 <html lang="en">
 	<head>
 		<BaseHead title={content.title} description={content.description} />
+		<script define:vars={{ Config }}>
+			const root = document.documentElement;
+			const colorThemeMetaTag = document.querySelector(
+				"meta[name='theme-color']"
+			);
+			const theme =
+				typeof localStorage !== "undefined"
+					? localStorage.getItem("theme")
+					: null;
+			if (
+				theme === "dark" ||
+				(!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)
+			) {
+				root.classList.add("dark");
+				colorThemeMetaTag.setAttribute("content", Config.themeColorDark);
+			} else {
+				root.classList.remove("dark");
+				colorThemeMetaTag.setAttribute("content", Config.themeColorLight);
+			}
+		</script>
 	</head>
 
 	<body>
 		<Header />
-		<main>
+		<main class="sm:grid sm:grid-cols-[3fr_1fr] sm:gap-x-10 sm:items-start">
 			<article>
 				<ul>
 					{allCategoriesData && allCategoriesData.map(category => (
@@ -45,8 +66,26 @@ const allCategoriesData = content.categories && generateCategoryData(content.cat
 				{content.pubDate && <time>{content.pubDate}</time>}
 				{content.updatedDate && <div>Last updated on <time>{content.updatedDate}</time></div>}
 				<hr/>
-				<slot />
+				<div class="mt-12 prose prose-sm prose-cactus prose-headings:font-semibold prose-headings:before:content-['#'] prose-headings:before:text-accent prose-headings:before:absolute prose-headings:before:-ml-4 prose-th:before:content-none">
+					<slot />
+				</div>
 			</article>
+			<aside
+			class="invisible hidden text-right sm:sticky sm:top-20 sm:block sm:visible"
+		>
+			<h2 class="font-semibold">Table of Contents</h2>
+			<ul class="mt-4 text-xs space-y-2">
+					{
+						headings.map(({ slug, text }) => (
+							<li class="line-clamp-2 hover:text-accent">
+								<a href={`#${slug}`} aria-label={`Scroll to section: ${text}`}>
+									<span>&#35;</span> {text}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</aside>
 		</main>
 		<Footer />
 	</body>

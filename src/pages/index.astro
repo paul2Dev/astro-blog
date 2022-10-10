@@ -2,18 +2,27 @@
 import Baselayout from '../layouts/Base.astro'
 import PostsList from '../components/PostsList.astro'
 import CategoriesList from '../components/CategoriesList.astro'
+import SocialList from '../components/SocialList.astro'
+import Config from '../config'
 
 const posts = (await Astro.glob('./*.{md,mdx}')).sort(
     (a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
 );
 
-const title = 'Blog'
-const description = 'blog content description'
+const title = Config.siteTitle
+const description = Config.siteDescription
 
 const { page } = Astro.props
 ---
 
 <Baselayout title={title} description={description}>
+    <section class="mb-4">
+		<h1 class="mb-6 title">Hello World!</h1>
+		<p class="mb-4">
+			Hi, my name is Paul, i'm a web developer with 13+ years experience in modern web technology stack, including PHP, HTML, CSS, Laravel, VueJS, jQuery, TailwindCSS, Bootstrap, NodeJS, MySQL, MongoDB, Git and more
+		</p>
+		<SocialList />
+	</section>
     <CategoriesList posts={posts} links={true}/>
     <PostsList posts={posts} />
 </Baselayout>

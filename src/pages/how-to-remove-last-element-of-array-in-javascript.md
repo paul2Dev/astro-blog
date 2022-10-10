@@ -4,8 +4,7 @@ title: "How to remove first element of array in JavaScript"
 description: "pop() will remove the last element of an array."
 pubDate: "Aug 17 2022"
 heroImage: ""
-categories: 
-    - JavaScript
+categories: ['JavaScript']
 --- 
 
 ```javascript
