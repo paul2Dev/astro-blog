@@ -7,6 +7,11 @@ import vue from "@astrojs/vue";
 
 // https://astro.build/config
 export default defineConfig({
+  vite: {
+    ssr: {
+      external: ["svgo"],
+    },
+  },
   markdown: {
     shikiConfig: {
       theme: "dracula",
@@ -20,3 +25,4 @@ export default defineConfig({
     }
   }), vue()]
 });
+

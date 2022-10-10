@@ -2,12 +2,14 @@
 import HeaderLink from './HeaderLink.astro';
 // import ThemeToggle from "./ThemeToggle.astro";
 import ThemeToggle from "./ThemeToggle.vue";
+import FixThemeColorOnReloadPage from './FixThemeColorOnReloadPage.astro';
 import Config from '../config';
 
 const url = new URL(Astro.request.url);
 ---
 
 <header>
+	<FixThemeColorOnReloadPage />
 	<div class="flex gap-2">
 		<a
 				href="/"
@@ -29,8 +31,8 @@ const url = new URL(Astro.request.url);
 				<a href="/about" aria-current={url.pathname === "/about" ? "page" : false}
 					>About
 				</a>
-				<a href="/posts" aria-current={url.pathname === "/posts" ? "page" : false}
-					>Blog
+				<a href="https://github.com/paul2Dev" target="_blank"
+					>GitHub
 				</a>
 			</nav>
 		</div>

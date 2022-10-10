@@ -1,9 +1,9 @@
 ---
 import Baselayout from '../layouts/Base.astro'
+import { Icon } from 'astro-icon'
 
 const title = 'About'
 const description = 'about page content description'
-const heroImage =  "/placeholder-about.jpg"
 
 const { page } = Astro.props;
 ---
@@ -11,33 +11,134 @@ const { page } = Astro.props;
 <Baselayout title={title} description={description}>
     <div class="space-y-6">
 		<h1 class="title">About</h1>
-		<p>
-			Hi, my name is Paul, i'm a web developer with 10+ years experience in modern web technology stack, including PHP, HTML, CSS, Laravel, VueJS, jQuery, TailwindCSS, Bootstrap, NodeJS, MySQL, MongoDB, Git and more 
-		</p>
-		<div class="flex justify-center">
-			<img src={heroImage} alt={title}>
-		</div>
-		<p>Here are my some of my awesome built in features:</p>
-		<ul class="list-disc list-inside">
-			<li>I'm ultra fast as I'm a static site</li>
-			<li>I'm fully responsive</li>
-			<li>I come with a light and dark mode</li>
-			<li>I'm easy to customise and add additional content</li>
-			<li>I have Tailwind CSS styling</li>
-			<li>Shiki code syntax highlighting</li>
-		</ul>
-		<p>
-			Clone or fork my
-			<a
-				class="inline-block cactus-link"
-				href="https://github.com/paul2Dev?tab=repositories"
-				target="_blank"
-				rel="noopener noreferrer"
-				aria-label="github repository"
-			>
-				repos
-			</a> if you like me!
-		</p>
+		<!-- Equivalent shorthand -->
+
+		<section class="mb-12 sm:mb-14 sm:flex sm:items-center sm:justify-between">
+			<img alt="Image of the author" class="rounded-full w-32 overflow-hidden" src="/about_me.jpg" loading="eager" decoding="async" width="320" height="320">
+			<div class="max-w-lg sm:my-0 sm:order-first">
+			  <p class="w-full font-normal leading-7 sm:max-w-sm md:max-w-xl">
+				Hi, my name is Paul, i'm a web developer with 13+ years experience in modern web technology stack.
+				i enjoy experimenting new web technologies in my free time and create new projects.
+			  </p>
+			</div>
+		</section>
+		
+		<section class="mb-14 sm:mb-14">
+			<h2 class="mb-4 text-2xl font-bold tracking-tight">
+			  Technologies that i use frequently
+			</h2>
+			<p class="w-full mb-8 font-normal leading-7">
+			  I love exploring new libraries, programing languages and frameworks. Below
+			  is a list of technologies that I've used everyday at work or on my personal projects.
+			</p>
+			<div class="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-4">
+				<div class="flex items-center gap-4">
+					<span class="w-11 h-11 flex items-center justify-center border-t border-zinc-700 bg-zinc-800 rounded-full">
+						<Icon class="w-10" name="vscode-icons:file-type-php" />
+					</span>
+					<p>PHP</p>
+				</div>
+				<div class="flex items-center gap-4">
+					<span class="w-11 h-11 flex items-center justify-center border-t border-zinc-700 bg-zinc-800 rounded-full">
+						<Icon class="w-6" name="vscode-icons:file-type-mysql" />
+					</span>
+					<p>MySQL</p>
+				</div>
+				<div class="flex items-center gap-4">
+					<span class="w-11 h-11 flex items-center justify-center border-t border-zinc-700 bg-zinc-800 rounded-full">
+						<Icon class="w-8" name="vscode-icons:file-type-mongo" />
+					</span>
+					<p>MongoDB</p>
+				</div>
+				<div class="flex items-center gap-4">
+					<span class="w-11 h-11 flex items-center justify-center border-t border-zinc-700 bg-zinc-800 rounded-full">
+						<Icon class="w-6" name="logos:laravel" />
+					</span>
+					<p>Laravel</p>
+				</div>
+				<div class="flex items-center gap-4">
+					<span class="w-11 h-11 flex items-center justify-center border-t border-zinc-700 bg-zinc-800 rounded-full">
+						<Icon class="w-6" name="logos:wordpress-icon" />
+					</span>
+					<p>Wordpress</p>
+				</div>
+				<div class="flex items-center gap-4">
+					<span class="w-11 h-11 flex items-center justify-center border-t border-zinc-700 bg-zinc-800 rounded-full">
+						<Icon class="w-6" name="logos:javascript" />
+					</span>
+					<p>JavaScript</p>
+				</div>
+				<div class="flex items-center gap-4">
+					<span class="w-11 h-11 flex items-center justify-center border-t border-zinc-700 bg-zinc-800 rounded-full">
+						<Icon class="w-10" name="logos:jquery" />
+					</span>
+					<p>jQuery</p>
+				</div>
+				<div class="flex items-center gap-4">
+					<span class="w-11 h-11 flex items-center justify-center border-t border-zinc-700 bg-zinc-800 rounded-full">
+						<Icon class="w-8" name="vscode-icons:file-type-node" />
+					</span>
+					<p>Node.js</p>
+				</div>
+				<div class="flex items-center gap-4">
+					<span class="w-11 h-11 flex items-center justify-center border-t border-zinc-700 bg-zinc-800 rounded-full">
+						<Icon class="w-6" name="logos:bootstrap" />
+					</span>
+					<p>Bootstrap</p>
+				</div>
+				<div class="flex items-center gap-4">
+					<span class="w-11 h-11 flex items-center justify-center border-t border-zinc-700 bg-zinc-800 rounded-full">
+						<Icon class="w-8" name="logos:tailwindcss-icon" />
+					</span>
+					<p>TailwindCSS</p>
+				</div>
+				<div class="flex items-center gap-4">
+					<span class="w-11 h-11 flex items-center justify-center border-t border-zinc-700 bg-zinc-800 rounded-full">
+						<Icon class="w-8" name="vscode-icons:file-type-vue" />
+					</span>
+					<p>VueJS</p>
+				</div>
+				<div class="flex items-center gap-4">
+					<span class="w-11 h-11 flex items-center justify-center border-t border-zinc-700 bg-zinc-800 rounded-full">
+						<Icon class="w-8" name="vscode-icons:file-type-vite" />
+					</span>
+					<p>Vite</p>
+				</div>
+				<div class="flex items-center gap-4">
+					<span class="w-11 h-11 flex items-center justify-center border-t border-zinc-700 bg-zinc-800 rounded-full">
+						<Icon class="w-8" name="vscode-icons:file-type-astro" />
+					</span>
+					<p>Astro</p>
+				</div>
+				<div class="flex items-center gap-4">
+					<span class="w-11 h-11 flex items-center justify-center border-t border-zinc-700 bg-zinc-800 rounded-full">
+						<Icon class="w-8" name="logos:github-icon" />
+					</span>
+					<p>GitHub</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="mb-8 sm:mb-14">
+			<h2 class="mb-4 text-2xl font-bold tracking-tight">
+			  Projects
+			</h2>
+			<p class="w-full mb-8 font-normal leading-7">
+				Most of my projects are done over the weekend, because i work a full time job, or in weekdays after work when i'm in the mood.
+			</p>
+			<p>
+				Feel free to clone or fork my
+				<a
+					class="inline-block cactus-link"
+					href="https://github.com/paul2Dev?tab=repositories"
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="github repository"
+				>
+					repos
+				</a> if you found something useful! 😉
+			</p>
+		</section>
 	</div>
 </Baselayout>
 

@@ -1,0 +1,18 @@
+<script is:inline>
+    const theme = (() => {
+        if (typeof localStorage !== "undefined" && localStorage.getItem("vueuse-color-scheme")) {
+        return localStorage.getItem("vueuse-color-scheme");
+        }
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        return "dark";
+        }
+        return "auto";
+    })();
+    
+    if (theme === "auto") {
+        document.documentElement.classList.remove("dark");
+    } else {
+        document.documentElement.classList.add("dark");
+    }
+    window.localStorage.setItem("vueuse-color-scheme", theme);
+</script>
