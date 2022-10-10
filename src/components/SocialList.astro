@@ -1,42 +1,12 @@
 ---
 import { Icon } from 'astro-icon'
+import SocialLink from './SocialLink.astro';
+import socials from '../content/socials.json'
 ---
 
 <div class="flex flex-wrap items-center sm:items-center gap-x-4">
 	<p>Find me on</p>
 	<ul class="flex items-center flex-1 gap-x-4 sm:flex-initial">
-		<li>
-			<a
-				class="inline-block p-2 sm:hover:text-link"
-				href="https://github.com/paul2Dev"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-			<Icon class="w-6" name="iconoir:github" />
-				<span class="sr-only">Github</span>
-			</a>
-		</li>
-		<li>
-			<a
-				class="inline-block p-2 sm:hover:text-link"
-				href="https://www.instagram.com/paul.2d/"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-			<Icon class="w-6" name="iconoir:instagram" />
-				<span class="sr-only">Instagram</span>
-			</a>
-		</li>
-		<li>
-			<a
-				class="inline-block p-2 sm:hover:text-link"
-				href="mailto:contact@paul2d.dev"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-			<Icon class="w-6" name="iconoir:mail" />
-				<span class="sr-only">Instagram</span>
-			</a>
-		</li>
+		{socials.map((social) => <SocialLink {...social} />)}
 	</ul>
 </div>

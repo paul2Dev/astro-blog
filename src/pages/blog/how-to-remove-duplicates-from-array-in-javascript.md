@@ -1,5 +1,5 @@
 ---
-layout: "../layouts/BlogPost.astro"
+layout: "../../layouts/BlogPost.astro"
 title: "How to remove duplicates from array in JavaScript"
 description: "using Set() you can eliminate duplicates from and array."
 pubDate: "Aug 17 2022"

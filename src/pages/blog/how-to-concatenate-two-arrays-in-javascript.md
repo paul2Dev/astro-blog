@@ -1,5 +1,5 @@
 ---
-layout: "../layouts/BlogPost.astro"
+layout: "../../layouts/BlogPost.astro"
 title: "How to concatenate two arrays in JavaScript"
 description: "use concat() in JavaScript to easily concatenate two arrays."
 pubDate: "Aug 11 2021"

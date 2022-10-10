@@ -1,0 +1,21 @@
+---
+import Baselayout from '../../layouts/Base.astro'
+import PostsList from '../../components/PostsList.astro'
+import CategoriesList from '../../components/CategoriesList.astro'
+import SocialList from '../../components/SocialList.astro'
+import Config from '../../config'
+
+const posts = (await Astro.glob('./*.{md,mdx}')).sort(
+    (a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+);
+
+const title = Config.siteTitle
+const description = Config.siteDescription
+
+const { page } = Astro.props
+---
+
+<Baselayout title={title} description={description}>
+    <CategoriesList posts={posts} links={true}/>
+    <PostsList posts={posts} />
+</Baselayout>

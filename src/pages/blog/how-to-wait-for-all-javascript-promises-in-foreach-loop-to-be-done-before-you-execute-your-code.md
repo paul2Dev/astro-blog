@@ -1,5 +1,5 @@
 ---
-layout: "../layouts/BlogPost.astro"
+layout: "../../layouts/BlogPost.astro"
 title: "How to wait for all javascript promises in forEach loop to be done before you execute your code"
 description: "Let’s say that you’ve got an array with some url elements that you want to fetch some data from, and want to execute some code after all those promises are done."
 pubDate: "Sept 2 2022"

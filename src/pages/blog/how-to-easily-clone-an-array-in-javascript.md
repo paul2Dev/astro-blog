@@ -1,5 +1,5 @@
 ---
-layout: "../layouts/BlogPost.astro"
+layout: "../../layouts/BlogPost.astro"
 title: "How to easily clone an array in Javascript"
 description: "slice() will clone an array."
 pubDate: "Aug 23 2022"

@@ -1,0 +1,17 @@
+[
+    {
+        "name":"Github",
+        "logo":"iconoir:github",
+        "url":"https://github.com/paul2Dev"
+    },
+    {
+        "name":"Instagram",
+        "logo":"iconoir:instagram",
+        "url":"https://www.instagram.com/paul.2d"
+    },
+    {
+        "name":"Email",
+        "logo":"iconoir:mail",
+        "url":"mailto:contact@paul2d.dev"
+    }
+]

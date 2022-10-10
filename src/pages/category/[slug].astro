@@ -6,7 +6,7 @@ import {generateCategoryData} from '../../utils/helpers.js'
 
 
 export async function getStaticPaths() {
-	const posts = (await Astro.glob('../*.{md,mdx}')).sort(
+	const posts = (await Astro.glob('../blog/*.{md,mdx}')).sort(
 		(a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
 	);
     
