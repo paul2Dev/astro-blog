@@ -1,6 +1,6 @@
 ---
 import HeaderLink from './HeaderLink.astro';
-// import ThemeToggle from "./ThemeToggle.astro";
+import Menu from './Menu.astro';
 import ThemeToggle from "./ThemeToggle.vue";
 import FixThemeColorOnReloadPage from './FixThemeColorOnReloadPage.astro';
 import Config from '../config';
@@ -18,23 +18,7 @@ const url = new URL(Astro.request.url);
 		<img src={Config.siteLogo} width={70} alt="">
 		</a>
 		<div class="self-center">
-			<a
-				href="/"
-				class="logo"
-				aria-current={url.pathname === "/" ? "page" : false}
-			>
-				
-				<span>{Config.siteTitle}</span>
-			</a>
-			<nav id="navigation-menu" aria-label="Main">
-				<a href="/" aria-current={url.pathname === "/" ? "page" : false}>Home</a>
-				<a href="/blog" aria-current={url.pathname === "/blog" ? "page" : false}
-					>Blog
-				</a>
-				<a href="https://github.com/paul2Dev" target="_blank"
-					>GitHub
-				</a>
-			</nav>
+			<Menu />
 		</div>
 	</div>
 	
@@ -80,28 +64,6 @@ const url = new URL(Astro.request.url);
 
 			svg {
 				@apply h-6 w-6;
-			}
-		}
-
-		nav {
-			@apply mt-1 -ml-4 hidden text-accent sm:flex sm:divide-x sm:divide-dashed sm:divide-accent;
-
-			a {
-				@apply px-4 sm:hover:underline;
-			}
-		}
-
-		@media (max-width: 640px) {
-			:global(body.menu-open) & {
-				@apply relative z-50;
-
-				nav {
-					@apply absolute -inset-x-4 top-14 m-0 flex flex-col items-end gap-y-4 rounded-md bg-[color:var(--theme-menu-bg)] py-4 shadow backdrop-blur backdrop-filter;
-
-					a {
-						@apply p-4;
-					}
-				}
 			}
 		}
 	}

@@ -24,8 +24,7 @@ const { posts } = Astro.props;
 
                 <CategoriesList posts={[post]} links={false} extraClass={'text-xs'} />
             </div>
-            
-
+        
             <p class="my-2">{post.frontmatter.description}</p>
             <h2>
                 <a class="text-accent" href={post.url}>Read more</a>

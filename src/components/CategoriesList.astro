@@ -1,9 +1,9 @@
 ---
 import {generateCategoryData} from '../utils/helpers.js'
 
-const { posts, links, extraClass } = Astro.props;
-
 const categories = new Set()
+
+const { posts, links, extraClass } = Astro.props;
 
 posts.map(post => {
     post.frontmatter.categories && post.frontmatter.categories.map(category => {
