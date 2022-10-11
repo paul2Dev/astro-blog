@@ -6,5 +6,5 @@ export default {
     siteLogo: '/logo.png',
     themeColorLight: "#fafafa",
     themeColorDark: "#1d1f21",
-    postsPerPage: 5
+    postsPerPage: 4
 }
