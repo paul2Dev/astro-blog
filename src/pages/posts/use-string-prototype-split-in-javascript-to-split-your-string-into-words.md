@@ -4,7 +4,7 @@ title: "Use string prototype split() in JavaScript to split your string into wor
 description: "an easy way to split your string into words is to use split() on your string"
 pubDate: "Aug 15 2022"
 heroImage: ""
-categories: ['JavaScript']
+tags: ['JavaScript']
 --- 
 
 an easy way to split your string into words is to use split() on your string

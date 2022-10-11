@@ -4,7 +4,7 @@ title: "How to remove duplicates from array in JavaScript"
 description: "using Set() you can eliminate duplicates from and array."
 pubDate: "Aug 17 2022"
 heroImage: ""
-categories: ['JavaScript']
+tags: ['JavaScript']
 --- 
 
 ```javascript

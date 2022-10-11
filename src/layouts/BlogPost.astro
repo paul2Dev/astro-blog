@@ -2,7 +2,7 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import {generateCategoryData} from '../utils/helpers.js'
+import {generateTagData} from '../utils/helpers.js'
 import Config from "../config";
 
 export interface Props {
@@ -17,7 +17,7 @@ export interface Props {
 }
 
 const {content, headings} = Astro.props;
-const allCategoriesData = content.categories && generateCategoryData(content.categories);
+const allCategoriesData = content.tags && generateTagData(content.tags);
 ---
 
 <html lang="en">
@@ -50,8 +50,8 @@ const allCategoriesData = content.categories && generateCategoryData(content.cat
 		<main class="sm:grid sm:grid-cols-[3fr_1fr] sm:gap-x-10 sm:items-start">
 			<article>
 				<ul>
-					{allCategoriesData && allCategoriesData.map(category => (
-						<li><a href={`/category/${category.slug}`}>{category.name}</a></li>
+					{allCategoriesData && allCategoriesData.map(tag => (
+						<li><a href={`/tags/${tag.slug}`}>{tag.name}</a></li>
 						))}
 				</ul>
 				{content.heroImage && (

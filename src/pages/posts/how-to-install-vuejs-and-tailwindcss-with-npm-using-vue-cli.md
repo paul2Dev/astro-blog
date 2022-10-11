@@ -4,7 +4,7 @@ title: "How to install VueJS and TailwindCSS with npm using vue cli"
 description: "the easy way to setup your VueJS project with TailwindCSS."
 pubDate: "Aug 08 2021"
 heroImage: ""
-categories: ['TailwindCss', 'VueJS']
+tags: ['TailwindCss', 'VueJS']
 ---
 
 here is an easy way to setup your VueJS project with TailwindCSS.

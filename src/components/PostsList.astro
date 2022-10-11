@@ -1,5 +1,5 @@
 ---
-import CategoriesList from '../components/CategoriesList.astro'
+import TagsList from '../components/TagsList.astro'
 const { posts } = Astro.props;
 ---
 <div class="my-10">
@@ -22,7 +22,7 @@ const { posts } = Astro.props;
                     })}
                 </time>
 
-                <CategoriesList posts={[post]} links={false} extraClass={'text-xs'} />
+                <TagsList posts={[post]} links={false} extraClass={'text-xs'} />
             </div>
         
             <p class="my-2">{post.frontmatter.description}</p>

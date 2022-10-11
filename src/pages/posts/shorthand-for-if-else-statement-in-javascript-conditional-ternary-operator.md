@@ -4,7 +4,7 @@ title: "Shorthand for if-else statement in Javascript – Conditional (ternary) 
 description: ""
 pubDate: "Aug 23 2022"
 heroImage: ""
-categories: ['JavaScript']
+tags: ['JavaScript']
 --- 
 
 ```javascript

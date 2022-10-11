@@ -4,7 +4,7 @@ title: "Try console.table() when you debug your JavaScript app"
 description: "next time you’re debugging your application in javascript using console.log() try an alternative function like console.table()."
 pubDate: "Aug 11 2022"
 heroImage: ""
-categories: ['JavaScript']
+tags: ['JavaScript']
 --- 
 
 Next time you’re debugging your application in javascript using console.log() try an alternative function like console.table() for a different data representation in your console or browser.

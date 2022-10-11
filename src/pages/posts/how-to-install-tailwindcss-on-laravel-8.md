@@ -4,7 +4,7 @@ title: "How to install TailwindCSS on Laravel 8"
 description: "let’s install TailwindCSS so you can use it in your Laravel project."
 pubDate: "Aug 09 2021"
 heroImage: ""
-categories: ['TailwindCss', 'Laravel']
+tags: ['TailwindCss', 'Laravel']
 --- 
 
 let’s install TailwindCSS so you can use it in your Laravel project.

@@ -10,13 +10,13 @@ export function generateSlug(string) {
       .replace(/-+$/, '');
   }
   
-  export function generateCategoryData(categories) {
-    let categoryData = [];
-    categories.forEach((category) => {
-      categoryData.push({
-        name: category,
-        slug: `${generateSlug(category)}`,
+  export function generateTagData(Tags) {
+    let tagData = [];
+    Tags.forEach((tag) => {
+      tagData.push({
+        name: tag,
+        slug: `${generateSlug(tag)}`,
       });
     });
-    return categoryData;
+    return tagData;
   }

@@ -13,7 +13,7 @@ const url = new URL(Astro.request.url);
 </a>
 <nav id="navigation-menu" aria-label="Main">
     <a href="/" class={url.pathname === "/" ? "active" : ""} aria-current={url.pathname === "/" ? "page" : false}>Home</a>
-    <a href="/blog" class={url.pathname === "/blog" ? "active" : ""} aria-current={url.pathname === "/blog" ? "page" : false}
+    <a href="/posts" class={url.pathname === "/posts" ? "active" : ""} aria-current={url.pathname === "/posts" ? "page" : false}
         >Blog
     </a>
     <a href="/projects" class={url.pathname === "/projects" ? "active" : ""} aria-current={url.pathname === "/blog" ? "page" : false}
@@ -46,6 +46,10 @@ const url = new URL(Astro.request.url);
 
                 a {
                     @apply p-4;
+                }
+
+                a.active {
+                    @apply font-bold underline;
                 }
             }
         }

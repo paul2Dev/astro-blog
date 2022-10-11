@@ -4,7 +4,7 @@ title: "Use array prototype forEach() in JavaScript to loop through any array"
 description: "an easy alternative of a for loop in JavaScript is to use forEach() on your array every time you have to do some logic on some elements"
 pubDate: "Aug 11 2022"
 heroImage: ""
-categories: ['JavaScript']
+tags: ['JavaScript']
 --- 
 
 an easy alternative of a for loop in JavaScript is to use forEach() on your array every time you have to do some logic on some elements

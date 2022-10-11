@@ -1,0 +1,27 @@
+---
+import {generateTagData} from '../utils/helpers.js'
+
+const posts = (await Astro.glob('../pages/posts/*.{md,mdx}')).sort(
+    (a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+);
+
+const tags = new Set()
+
+const { links, extraClass } = Astro.props;
+
+posts.map(post => {
+    post.frontmatter.tags && post.frontmatter.tags.map(tag => {
+        tags.add(tag);
+    })
+})
+
+const uniquetags = generateTagData(tags)
+---
+
+<ul class="flex flex-wrap gap-2 text-bgColor">
+    {uniquetags && uniquetags.map(tag => (
+        <li class={"flex items-center justify-center px-1 rounded-sm bg-accent " + (extraClass ? extraClass : "") }>
+            {links ? <a  href={`/tags/${tag.slug}`}>{tag.name}</a> : tag.name}
+        </li>
+    ))}
+</ul>
