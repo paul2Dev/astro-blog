@@ -1,5 +1,5 @@
 ---
-import TagsList from '../components/TagsList.astro'
+import PostTagsList from './PostTagsList.astro';
 const { posts } = Astro.props;
 ---
 <div class="my-10">
@@ -21,8 +21,7 @@ const { posts } = Astro.props;
                         day: 'numeric',
                     })}
                 </time>
-
-                <TagsList posts={[post]} links={false} extraClass={'text-xs'} />
+                <PostTagsList tagList={post.frontmatter.tags} />
             </div>
         
             <p class="my-2">{post.frontmatter.description}</p>

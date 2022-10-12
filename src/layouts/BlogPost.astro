@@ -2,8 +2,7 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import {generateTagData} from '../utils/helpers.js'
-import Config from "../config";
+import PostTagsList from '../components/PostTagsList.astro';
 
 export interface Props {
 	content: {
@@ -17,43 +16,17 @@ export interface Props {
 }
 
 const {content, headings} = Astro.props;
-const allCategoriesData = content.tags && generateTagData(content.tags);
 ---
 
 <html lang="en">
 	<head>
 		<BaseHead title={content.title} description={content.description} />
-		<script define:vars={{ Config }}>
-			const root = document.documentElement;
-			const colorThemeMetaTag = document.querySelector(
-				"meta[name='theme-color']"
-			);
-			const theme =
-				typeof localStorage !== "undefined"
-					? localStorage.getItem("theme")
-					: null;
-			if (
-				theme === "dark" ||
-				(!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)
-			) {
-				root.classList.add("dark");
-				colorThemeMetaTag.setAttribute("content", Config.themeColorDark);
-			} else {
-				root.classList.remove("dark");
-				colorThemeMetaTag.setAttribute("content", Config.themeColorLight);
-			}
-		</script>
 	</head>
 
 	<body>
 		<Header />
 		<main class="sm:grid sm:grid-cols-[3fr_1fr] sm:gap-x-10 sm:items-start">
 			<article>
-				<ul>
-					{allCategoriesData && allCategoriesData.map(tag => (
-						<li><a href={`/tags/${tag.slug}`}>{tag.name}</a></li>
-						))}
-				</ul>
 				{content.heroImage && (
 					<img
 						width={720}
@@ -62,11 +35,11 @@ const allCategoriesData = content.tags && generateTagData(content.tags);
 						alt=""
 					/>
 				)}
-				<h1 class="title">{content.title}</h1>
-				{content.pubDate && <time>{content.pubDate}</time>}
-				{content.updatedDate && <div>Last updated on <time>{content.updatedDate}</time></div>}
+				<h1 class="title mb-4">{content.title}</h1>
+				{content.pubDate && <time class="text-gray-500">{content.pubDate}</time>}
+				<PostTagsList tagList={content.tags} />
 				<hr/>
-				<div class="mt-12 prose prose-sm prose-cactus prose-headings:font-semibold prose-headings:before:content-['#'] prose-headings:before:text-accent prose-headings:before:absolute prose-headings:before:-ml-4 prose-th:before:content-none">
+				<div class="mt-5 prose prose-sm prose-cactus prose-headings:font-semibold prose-headings:before:content-['#'] prose-headings:before:text-accent prose-headings:before:absolute prose-headings:before:-ml-4 prose-th:before:content-none">
 					<slot />
 				</div>
 			</article>

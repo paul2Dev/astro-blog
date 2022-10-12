@@ -2,7 +2,7 @@
 import Baselayout from '../../../layouts/Base.astro'
 import PostsList from '../../../components/PostsList.astro'
 import TagsList from '../../../components/TagsList.astro'
-import {generateTagData} from '../../../utils/helpers.js'
+import {getTagData} from '../../../utils/helpers.js'
 import Pagination from '../../../components/Pagination.astro'
 import Config from '../../../config'
 
@@ -19,7 +19,7 @@ export async function getStaticPaths({ paginate }) {
         })
     })
 
-    const uniqueTags = generateTagData(tags);
+    const uniqueTags = getTagData(tags);
 
 	return uniqueTags.map((tag) => {
         // filter the posts that match the given tag

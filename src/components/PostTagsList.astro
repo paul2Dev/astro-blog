@@ -1,0 +1,14 @@
+---
+import {getTagData} from '../utils/helpers.js'
+const { tagList } = Astro.props;
+
+const tags = getTagData(tagList)
+---
+
+<span>in:</span>
+<ul class="text-gray-500 inline">
+    {tags && tags.map((tag, index) => (
+        <li class="inline text-accent"><a href={`/tags/${tag.slug}`}>{tag.name.toLowerCase()}</a></li>
+        <span>{(index < tags.length - 1) && ' | '}</span>
+    ))}
+</ul>

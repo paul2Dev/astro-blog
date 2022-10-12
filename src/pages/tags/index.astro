@@ -2,15 +2,10 @@
 import Baselayout from '../../layouts/Base.astro'
 import TagsList from '../../components/TagsList.astro'
 
-const posts = await Astro.glob('../*.{md,mdx}');
-
 const title = 'Blog Tags'
 const description = 'blog Tags content description'
-
-// All paginated data is passed on the "page" prop
-const { page } = Astro.props;
 ---
 
 <Baselayout title={title} description={description}>
-    <TagsList posts={posts} links={true}/>
+    <TagsList links={true}/>
 </Baselayout>

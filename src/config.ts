@@ -6,5 +6,20 @@ export default {
     siteLogo: '/logo.png',
     themeColorLight: "#fafafa",
     themeColorDark: "#1d1f21",
-    postsPerPage: 4
+    postsPerPage: 4,
+    tags: [
+        {
+          name: "theme",
+          color: "btn-warning",
+          image: "/images/theme.jpg",
+          order: 1,
+        },
+    ],
+    tagsSettings: {
+        order: "name", // name | count
+        layout: "card", //button | card
+        image: "",
+        color: "btn-primary",
+        countVisibility: true,
+    }
 }

@@ -35,6 +35,7 @@ module.exports = {
 					css: {
 						a: {
 							"@apply cactus-link": "",
+							textDecoration: "underline"
 						},
 						strong: {
 							fontWeight: "700",
