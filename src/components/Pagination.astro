@@ -2,6 +2,6 @@
 const { page } = Astro.props;
 ---
 
-{page.url.prev ? <a class="text-accent" href={page.url.prev}>Previous</a> : null}
+{page.url.prev ? <a class="text-bgColor px-1 rounded-sm bg-accent hover:font-bold" href={page.url.prev}>Previous</a> : null}
 <span>Page {page.currentPage}</span>
-{page.url.next ? <a class="text-accent" href={page.url.next}>Next</a> : null}
+{page.url.next ? <a class="text-bgColor px-1 rounded-sm bg-accent hover:font-bold" href={page.url.next}>Next</a> : null}
