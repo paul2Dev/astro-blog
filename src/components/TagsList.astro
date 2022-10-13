@@ -7,7 +7,7 @@ const { links, extraClass } = Astro.props;
 const tags = getAllTags(allPosts)
 ---
 
-<ul class="flex flex-wrap gap-2 text-bgColor">
+<ul class="flex flex-wrap gap-2 text-bgColor mb-5">
     {tags && tags.map(tag => (
         <li class={"flex items-center justify-center px-1 rounded-sm bg-accent hover:font-bold" + (extraClass ? extraClass : "") }>
             {links ? <a  href={`/tags/${tag.slug}`}>{tag.name.toLowerCase()}</a> : tag.name.toLowerCase()}

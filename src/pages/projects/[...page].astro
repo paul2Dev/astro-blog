@@ -1,0 +1,27 @@
+---
+import Baselayout from '../../layouts/Base.astro'
+import PostsList from '../../components/PostsList.astro'
+import TagsList from '../../components/TagsList.astro'
+import Pagination from '../../components/Pagination.astro'
+import Config from '../../config'
+
+
+
+export async function getStaticPaths({ paginate }) {
+    const posts = (await Astro.glob('./*.{md,mdx}')).sort(
+        (a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+    );
+  // Generate pages from our array of astronauts, with 2 to a page
+  return paginate(posts, { pageSize: Config.postsPerPage });
+}
+
+const title = Config.siteTitle
+const description = Config.siteDescription
+
+const { page } = Astro.props
+---
+
+<Baselayout title={title} description={description}>
+    <PostsList posts={page.data} />
+    <Pagination page={page}></Pagination>
+</Baselayout>
