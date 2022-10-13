@@ -23,6 +23,8 @@ export default defineConfig({
     config: {
       applyBaseStyles: false
     }
-  }), vue()]
+  }), vue()],
+  site: 'https://paul2dev.github.io',
+  base: '/astro-blog',
 });
 
