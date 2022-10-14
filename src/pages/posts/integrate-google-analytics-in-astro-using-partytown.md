@@ -9,11 +9,11 @@ tags: ['Astro']
 
 If you’re using third-party scripts like google analytics, Partytown is a great tool to make sure that they don’t slow down your site.
 
-In this tutorial you will learn how to add google analytics to your project using Partytown integration
+In this tutorial you will learn how to add google analytics to your project using Partytown integration.
 
 ## Install partytown package
 
-in your astro project run this command
+in your astro project run this command.
 
 ```bash
 npm install -D @astrojs/partytown
@@ -21,7 +21,7 @@ npm install -D @astrojs/partytown
 
 ## Configure partytown in astro
 
-add partytown integration to your astro project in <code>**astro.config.mjs**</code>
+add partytown integration to your astro project in <code>**astro.config.mjs**</code>.
 
 ```javascript
 import { defineConfig } from "astro/config";
@@ -42,7 +42,7 @@ this configuration will allow **Partytown** to forward all events to **Google An
 
 ## Add google analytics code
 
-next add google analytics code in your <code>head</code> section of your html template
+next add google analytics code in your <code>head</code> section of your html template.
 
 ```html
 <!-- head -->
