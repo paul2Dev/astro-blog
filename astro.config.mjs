@@ -3,6 +3,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import partytown from "@astrojs/partytown";
+import robotsTxt from 'astro-robots-txt';
 
 import vue from "@astrojs/vue";
 
@@ -19,8 +20,8 @@ export default defineConfig({
       wrap: true
     }
   },
-  site: 'https://example.com',
   integrations: [mdx(),
+      robotsTxt(),
       sitemap(), 
       tailwind({
         config: {
