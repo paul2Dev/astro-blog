@@ -109,7 +109,7 @@ let’s test it out by adding a html tag in our **./scr/App.vue** file:
 
 now run server again with npm run serve and you should see something like this:
 
-![This is a placeholder image description](/vue_tailwind_cli.png)
+![This is a placeholder image description](/posts/vue_tailwind_cli.png)
 
 and that’s it, now go have fun creating you VueJS and TailwindCSS app 😀
 
