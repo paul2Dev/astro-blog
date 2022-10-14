@@ -43,3 +43,7 @@ export function generateSlug(string) {
     });
     return tagData;
   }
+
+  export function toggleClass(element, className) {
+    element.classList.toggle(className);
+  }

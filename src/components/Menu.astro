@@ -38,7 +38,7 @@ const url = new URL(Astro.request.url);
     }
 
     @media (max-width: 640px) {
-        :global(body.menu-open) & {
+        body.menu-open {
             @apply relative z-50;
 
             nav {

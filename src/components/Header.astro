@@ -9,6 +9,20 @@ const url = new URL(Astro.request.url);
 
 <header>
 	<FixThemeColorOnReloadPage />
+	<script>
+		import {toggleClass} from '../utils/helpers.js'
+		document.addEventListener("DOMContentLoaded", () => {
+			const { body } = document;
+			const toggleMenuButton = document.getElementById("toggle-navigation-menu");
+			let menuOpen = false;
+			toggleMenuButton.addEventListener("click", () => {
+				toggleClass(body, "menu-open");
+				toggleClass(toggleMenuButton, "text-accent");
+				menuOpen = !menuOpen;
+				toggleMenuButton.setAttribute("aria-expanded", menuOpen.toString());
+			});
+		});
+	</script>
 	<div class="flex gap-2">
 		<a
 				href="/"
