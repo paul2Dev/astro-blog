@@ -38,11 +38,13 @@ export async function getStaticPaths({ paginate }) {
 // All paginated data is passed on the "page" prop
 const { page } = Astro.props 
 const { tag } = Astro.params 
-const description = tag + ' description content'
+
+const title = Config.siteTitle + ' - ' + tag
+const description = Config.siteDescription
 ---
 
 
-<Baselayout title={tag} description={description}>
+<Baselayout title={title} description={description}>
     <h1 class="title mb-8 text-accent">{tag}</h1>
     <TagsList links={true}/>
     <PostsList posts={page.data} links={true}/>

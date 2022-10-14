@@ -1,7 +1,6 @@
 ---
 import Baselayout from '../../layouts/Base.astro'
 import PostsList from '../../components/PostsList.astro'
-import TagsList from '../../components/TagsList.astro'
 import Pagination from '../../components/Pagination.astro'
 import Config from '../../config'
 
@@ -15,7 +14,7 @@ export async function getStaticPaths({ paginate }) {
   return paginate(posts, { pageSize: Config.postsPerPage });
 }
 
-const title = Config.siteTitle
+const title = Config.siteTitle + ' - Projects'
 const description = Config.siteDescription
 
 const { page } = Astro.props

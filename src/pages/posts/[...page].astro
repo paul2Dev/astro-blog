@@ -15,7 +15,7 @@ export async function getStaticPaths({ paginate }) {
   return paginate(posts, { pageSize: Config.postsPerPage });
 }
 
-const title = Config.siteTitle
+const title = Config.siteTitle + ' - Blog'
 const description = Config.siteDescription
 
 const { page } = Astro.props

@@ -1,9 +1,10 @@
 ---
 import Baselayout from '../../layouts/Base.astro'
 import TagsList from '../../components/TagsList.astro'
+import Config from '../../config'
 
-const title = 'Blog Tags'
-const description = 'blog Tags content description'
+const title = Config.siteTitle + ' - Blog tags'
+const description = Config.siteDescription
 ---
 
 <Baselayout title={title} description={description}>
