@@ -7,8 +7,8 @@ export interface Props {
 const { name, logo, width } = Astro.props;
 ---
 
-<div class="flex items-center gap-4">
-    <span class="w-11 h-11 flex items-center justify-center border-t border-zinc-700 bg-zinc-800 rounded-full">
+<div class="flex items-center gap-4 cursor-pointer md:hover:animate-beat">
+    <span class="w-11 h-11 flex items-center justify-center border-t border-zinc-700 bg-zinc-800 rounded-full ">
         <Icon class={width} name={logo}/>
     </span>
     <p>{name}</p>

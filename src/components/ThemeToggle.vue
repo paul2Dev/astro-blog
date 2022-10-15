@@ -1,5 +1,5 @@
 <template>
-    <button @click="toggleDark()" type="button" id="toggle-theme" class="ml-auto btn btn-square btn-ghost swap swap-rotate">
+    <button @click="toggleDark()" type="button" id="toggle-theme" class="ml-auto btn btn-square btn-ghost swap swap-rotate hover:animate-wiggle">
         <svg v-if="isDark"
             id="toggle-theme-dark"
             aria-hidden="false"

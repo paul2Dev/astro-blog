@@ -7,6 +7,20 @@ module.exports = {
 	},
     theme: {
 		extend: {
+			animation: {
+				wiggle: 'wiggle 0.1s ease-in-out infinite',
+				beat: 'beat 0.6s ease-out infinite'
+			},
+			keyframes: {
+				wiggle: {
+					'0%, 100%': { transform: 'rotate(-8deg)' },
+					'50%': { transform: 'rotate(8deg)' }
+				},
+				beat: {
+					'0%, 100%': { transform: 'scale(1)' },
+					'30%': { transform: 'scale(1.3)' }
+				}
+			},
 			colors: {
 				bgColor: "hsl(var(--theme-bg) / <alpha-value>)",
 				textColor: "hsl(var(--theme-text) / <alpha-value>)",

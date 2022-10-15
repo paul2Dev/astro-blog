@@ -28,7 +28,7 @@ const url = new URL(Astro.request.url);
 				href="/"
 				aria-current={url.pathname === "/" ? "page" : false}
 			>
-		<img src={Config.siteLogo} width={70} alt="">
+		<img src={Config.siteLogo} width={70} alt="" class="hover:animate-wiggle">
 		</a>
 		<div class="self-center">
 			<Menu />
