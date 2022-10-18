@@ -1,0 +1,170 @@
+---
+import Baselayout from '../../layouts/Base.astro'
+import PostsList from '../../components/PostsList.astro'
+import TagsList from '../../components/TagsList.astro'
+import Pagination from '../../components/Pagination.astro'
+import Config from '../../config'
+
+
+const posts = (await Astro.glob('./*.{md,mdx}')).sort(
+    (a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+);
+
+const title = Config.siteTitle + ' - Blog'
+const description = Config.siteDescription
+
+const { page } = Astro.props
+
+---
+
+<Baselayout title={title} description={description}>
+    <div class="form-control my-4">
+        <div class="input-group flex flex-row">
+          <input
+            type="text"
+            placeholder="search in posts..."
+            class="w-full text-accent p-2 rounded outline-1 focus:outline"
+            id="textSearch"
+          />
+          <button
+            id="clearButton"
+            class="btn btn-square btn-error"
+            style="margin-left: 10px;"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <p class="" id="itemFoundText"></p>
+    <TagsList links={true}/>
+    <div id="posts"></div>
+    <!-- <PostsList posts={posts} /> -->
+</Baselayout>
+
+<script>
+import Fuse from "fuse.js";
+import Config from '../../config'
+import {getTagData} from '../../utils/helpers'
+
+console.log(Astro.props)
+
+var response = await fetch("../searchindex.json");
+const data = await response.json();
+
+const textInputDelay = (fn, ms) => {
+    let timer = 0;
+    return function (...args) {
+      clearTimeout(timer);
+      timer = setTimeout(fn.bind(this, ...args), ms || 0);
+    };
+};
+
+function clearSearch () {
+    document.getElementById("textSearch").value = ''
+    document.getElementById("posts").innerHTML = ''
+    document.getElementById("itemFoundText").innerHTML = ''
+    search()
+}
+
+const search = async () => {
+    let text = document.getElementById("textSearch").value;
+    const fuse = new Fuse(data, Config.searchOptions);
+
+    const res = (text.length === 0) ? data : fuse.search(text)
+    
+    let html = "";
+    let tags_html = "";
+    let tags = [];
+
+    if (res.length) {
+        //console.log(text.length);
+        if(text.length != 0) {
+            document.getElementById(
+            "itemFoundText"
+            ).innerHTML = `<p class="text-accent font-bold my-2"><span>${res.length} posts found for "${text}"</span></p>`;
+        } else {
+            document.getElementById("itemFoundText").innerHTML = ''
+        }
+      
+      res.forEach(element => {
+        const post = (element.item) ? element.item : element
+
+        html += `<div class="flex flex-col mb-8">`;
+
+            html += `<h2 class="mb-4 text-xl title"><a href=${post.url}>${post.title}</a></h2>`;
+
+            tags = getTagData(post.tags)
+
+            //console.log(tags)
+
+            tags_html = ``
+
+            if(tags.length > 0) {
+                tags_html += `<span>in</span>
+                                <ul class="text-gray-500 inline">`
+                                    {tags && tags.map((tag, index) => {
+                                        tags_html += `<li class="inline text-accent">${tag.name.toLowerCase()}</li>`
+                                        if(index < tags.length - 1) {
+                                            tags_html += '<span> | </span>'
+                                        }
+                                    })}
+                tags_html += `</ul>`
+            }
+
+            if (post.pubDate) {
+            let pubDate = new Date(post.pubDate).toLocaleDateString('en-us', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric',
+                        })  
+            html += `
+                <div class="flex flex-row items-center text-gray-500">
+                    <div class="flex gap-4">
+                        <div class="flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <time datetime="${pubDate}">${pubDate}</time>
+                        </div>   
+                        ${tags_html}
+                    </div>
+                </div>`;
+            }
+
+            if (post.description) {
+            html += `<p class="my-2">${post.description}</p>`;
+            }     
+
+            html += `<a class="text-accent" href="${post.url}">Read more</a>`
+
+        html += `</div>`;
+
+
+      });
+
+      document.getElementById("posts").innerHTML = html;
+    } else {
+      document.getElementById("itemFoundText").innerHTML = "";
+      document.getElementById("posts").innerHTML =
+        '<p class="text-accent font-bold my-2"><span>No post found for "'+ text +'"</span></p>';
+    }
+  };
+
+search()
+document.getElementById("textSearch").onkeyup = textInputDelay(search, 300);
+document.getElementById("clearButton").addEventListener("click", clearSearch)
+</script>

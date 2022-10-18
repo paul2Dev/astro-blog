@@ -21,5 +21,13 @@ export default {
         image: "",
         color: "btn-primary",
         countVisibility: true,
+    },
+    searchOptions: {
+        includeScore: true,
+        includeMatches: true,
+        keys: [
+          { name: "title", weight: 3 },
+          { name: "description", weight: 2 },
+        ],
     }
 }
