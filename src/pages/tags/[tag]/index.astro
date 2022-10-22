@@ -1,6 +1,6 @@
 ---
 import Baselayout from '../../../layouts/Base.astro'
-import PostsList from '../../../components/PostsList.vue'
+import PostsList from '../../../components/PostsList.svelte'
 import TagsList from '../../../components/TagsList.astro'
 import {getTagData} from '../../../utils/helpers.js'
 import Config from '../../../config'
@@ -45,7 +45,7 @@ const { tag } = Astro.params
 
 <Baselayout title={title} description={description}>
     <h1 class="title mb-4 text-accent">{tag}</h1>
-    <PostsList posts={posts} client:only="vue" >
+    <PostsList posts={posts} client:load >
       <TagsList links={true}/>
     </PostsList>
 </Baselayout>

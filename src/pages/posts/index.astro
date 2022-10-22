@@ -1,7 +1,7 @@
 ---
 import Baselayout from '../../layouts/Base.astro'
-import PostsList from '../../components/PostsList.vue'
 import TagsList from '../../components/TagsList.astro'
+import PostsList from '../../components/PostsList.svelte'
 
 import Config from '../../config'
 
@@ -18,7 +18,7 @@ const { page } = Astro.props
 ---
 
 <Baselayout title={title} description={description}>
-    <PostsList posts={posts} client:only="vue" >
+    <PostsList posts={posts} client:load >
       <TagsList links={true}/>
     </PostsList>
 </Baselayout>

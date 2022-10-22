@@ -4,6 +4,7 @@ import SocialList from '../components/SocialList.astro'
 import Skill from '../components/Skill.astro'
 import skills from '../content/skills.json'
 import Config from '../config'
+import HomeContent from '../components/HomeContent.svelte'
 
 
 const title = Config.siteTitle
@@ -13,52 +14,12 @@ const { page } = Astro.props;
 ---
 
 <Baselayout title={title} description={description}>
-    <div class="space-y-6">
-		<section class="sm:flex sm:items-center sm:justify-between">
-			<img alt="Image of the author" class="rounded-full w-32 overflow-hidden" src="/about_me.jpg" loading="eager" decoding="async" width="320" height="320">
-			<div class="max-w-lg sm:my-0 sm:order-first">
-			  <p class="w-full font-normal leading-7 sm:max-w-sm md:max-w-xl">
-				Hi, my name is Paul, i'm a web developer with 13+ years experience in modern web technology stack.
-				i enjoy experimenting new web technologies in my free time and test on new projects.
-			  </p>
-			  <SocialList />
-			</div>
-		</section>
-		
-		<section class="mb-14 sm:mb-14">
-			<h2 class="mb-4 text-2xl font-bold tracking-tight">
-			  Technologies that i use frequently
-			</h2>
-			<p class="w-full mb-8 font-normal leading-7">
-			  I enjoy to find, explore and test new libraries and frameworks. Below
-			  is a list of technologies that I've used everyday at work or on my personal projects.
-			</p>
-			<div class="grid gap-5 grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
-				{skills.map((skill) => <Skill {...skill} />)}
-			</div>
-		</section>
-
-		<section class="mb-8 sm:mb-14">
-			<h2 class="mb-4 text-2xl font-bold tracking-tight">
-			  Projects
-			</h2>
-			<p class="w-full mb-8 font-normal leading-7">
-				Most of my projects are done over the weekend, because i work a full time job, or in weekdays after work when i'm in the mood.
-			</p>
-			<p>
-				Feel free to clone or fork my
-				<a
-					class="inline-block cactus-link"
-					href="https://github.com/paul2Dev?tab=repositories"
-					target="_blank"
-					rel="noopener noreferrer"
-					aria-label="github repository"
-				>
-					repos
-				</a> if you found something useful! 😉
-			</p>
-		</section>
-	</div>
+	<HomeContent client:load >
+		<SocialList slot="social-list" />
+		<div class="grid gap-5 grid-cols-2 sm:grid-cols-3 md:grid-cols-4" slot="skills-list">
+			{skills.map((skill) => <Skill {...skill} />)}
+		</div>
+	</HomeContent>
 </Baselayout>
 
 
