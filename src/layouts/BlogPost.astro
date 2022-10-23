@@ -3,6 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import PostTagsList from '../components/PostTagsList.astro';
+import PostContent from "../components/PostContent.svelte";
 
 export interface Props {
 	content: {
@@ -22,45 +23,12 @@ const {content, headings} = Astro.props;
 	<head>
 		<BaseHead title={content.title} description={content.description} />
 	</head>
-
 	<body>
 		<Header />
-		<main class="sm:grid sm:grid-cols-[3fr_1fr] sm:gap-x-10 sm:items-start">
-			<article>
-				{content.heroImage && (
-					<img
-						width={720}
-						height={360}
-						src={content.heroImage}
-						alt=""
-						class="mb-4"
-					/>
-				)}
-				<h1 class="title mb-4">{content.title}</h1>
-				{content.pubDate && <time class="text-gray-500">{content.pubDate}</time>}
-				<PostTagsList tagList={content.tags} />
-				<hr/>
-				<div class="mt-5 prose prose-sm prose-cactus prose-headings:font-semibold prose-headings:before:content-['#'] prose-headings:before:text-accent prose-headings:before:absolute prose-headings:before:-ml-4 prose-th:before:content-none">
-					<slot />
-				</div>
-			</article>
-			<aside
-			class="invisible hidden text-right sm:sticky sm:top-20 sm:block sm:visible"
-		>
-			<h2 class="font-semibold">Table of Contents</h2>
-			<ul class="mt-4 text-xs space-y-2">
-					{
-						headings.map(({ slug, text }) => (
-							<li class="line-clamp-2 hover:text-accent">
-								<a href={`#${slug}`} aria-label={`Scroll to section: ${text}`}>
-									<span>&#35;</span> {text}
-								</a>
-							</li>
-						))
-					}
-				</ul>
-			</aside>
-		</main>
+			<PostContent {content} {headings} client:load>
+				<PostTagsList tagList={content.tags} slot="tags-list" />
+				<slot slot="content"/>
+			</PostContent>
 		<Footer />
 	</body>
 </html>

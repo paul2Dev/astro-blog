@@ -3,6 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import PostTagsList from '../components/PostTagsList.astro';
+import ProjectContent from "../components/ProjectContent.svelte";
 
 export interface Props {
 	content: {
@@ -27,33 +28,10 @@ const {content, headings} = Astro.props;
 
 	<body>
 		<Header />
-		<main class="sm:grid sm:grid-cols-[1fr] sm:gap-x-10 sm:items-start">
-			<article>
-				{content.heroImage && (
-					<img
-						width={720}
-						height={360}
-						src={content.heroImage}
-                        class="rounded-lg"
-						alt=""
-					/>
-				)}
-				<h1 class="title my-4">{content.title}</h1>
-				<PostTagsList tagList={content.tags} label="using:" />
-				<hr/>
-				<div class="mt-5 prose-sm prose-cactus prose-headings:font-semibold prose-headings:before:content-['#'] prose-headings:before:text-accent prose-headings:before:absolute prose-headings:before:-ml-4 prose-th:before:content-none">
-					<slot />
-				</div>
-                <ul class="flex flex-wrap gap-2 text-bgColor mt-2">
-					<li class="flex items-center justify-center px-1 rounded-sm bg-accent font-bold">
-						{content.repoUrl && <a href={content.repoUrl} target="_blank">GitHub Repo</a>}
-					</li>
-                    <li class="flex items-center justify-center px-1 rounded-sm bg-accent font-bold">
-						{content.demoUrl && <a href={content.demoUrl} target="_blank">DEMO</a>}
-					</li>
-                </ul>
-			</article>
-		</main>
+			<ProjectContent {content} client:load>
+				<PostTagsList tagList={content.tags} label="using:" slot="tags-list" />
+				<slot slot="content" />
+			</ProjectContent>
 		<Footer />
 	</body>
 </html>
