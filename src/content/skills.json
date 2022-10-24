@@ -55,6 +55,11 @@
         "width":"w-6"
     },
     {
+        "name":"Svelte",
+        "logo":"vscode-icons:file-type-svelte",
+        "width":"w-6"
+    },
+    {
         "name":"Vite",
         "logo":"vscode-icons:file-type-vite",
         "width":"w-7"
