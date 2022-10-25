@@ -11,8 +11,8 @@
 in:fly={{y: 50, duration: 500}}   
 out:fly={{y: 50, duration: 500}}   
 >
-    <section class="sm:flex sm:items-center sm:justify-between">
-        <img alt="Image of the author" class="rounded-full w-32 overflow-hidden" src="/about_me.jpg" loading="eager" decoding="async" width="320" height="320">
+    <section class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+        <img alt="paul2D" class="rounded-full w-32 overflow-hidden mb-4 self-center" src="/about_me.jpg" loading="eager" decoding="async" width="320" height="320">
         <div class="max-w-lg sm:my-0 sm:order-first">
           <p class="w-full font-normal leading-7 sm:max-w-sm md:max-w-xl">
             Hi, my name is Paul, i'm a web developer with 13+ years experience in modern web technology stack.
