@@ -91,7 +91,7 @@ const getUserAge = (user: User): number => {
 ```
 
 ## function signature
-
+y
 a function signuture is a definition of a function where you know exactly what type of parameters the function should have and what type must return.
 
 for example:
