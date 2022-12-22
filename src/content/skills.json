@@ -30,11 +30,6 @@
         "width":"w-6"
     },
     {
-        "name":"TypeScript",
-        "logo":"vscode-icons:file-type-typescript",
-        "width":"w-6"
-    },
-    {
         "name":"jQuery",
         "logo":"logos:jquery",
         "width":"w-8"
