@@ -55,3 +55,5 @@ let avgAge = data.reduce((acc, curr) => {
 }, { count: 0, total: 0 });
 console.log(avgAge.total / avgAge.count); // 30
 ```
+
+It can be used in many ways, so it's a very powerful function.
