@@ -10,7 +10,7 @@
 </script>
 
 {#if ready}
-<main class="sm:grid sm:grid-cols-[3fr_1fr] sm:gap-x-10 sm:items-start"
+<main class="sm:grid sm:grid-cols-1 sm:gap-x-10 sm:items-start"
 in:fly={{y: 50, duration: 500}}   
 out:fly={{y: 50, duration: 500}}   
 >
@@ -30,11 +30,11 @@ out:fly={{y: 50, duration: 500}}
         {/if}
         <slot name="tags-list"/>
         <hr/>
-        <div class="mt-5 prose prose-sm prose-cactus prose-headings:font-semibold prose-headings:before:content-['#'] prose-headings:before:text-accent prose-headings:before:absolute prose-headings:before:-ml-4 prose-th:before:content-none">
+        <div class="mt-5 prose-sm prose-cactus prose-headings:font-semibold prose-headings:before:content-['#'] prose-headings:before:text-accent prose-headings:before:absolute prose-headings:before:-ml-4 prose-th:before:content-none">
             <slot name="content"/>
         </div>
     </article> 
-    <aside
+    <!-- <aside
     class="invisible hidden text-right sm:sticky sm:top-20 sm:block sm:visible"
     >
         <h2 class="font-semibold">Table of Contents</h2>
@@ -49,6 +49,6 @@ out:fly={{y: 50, duration: 500}}
             {/each}
         </ul>
         {/if}
-    </aside>
+    </aside> -->
 </main>
 {/if}
