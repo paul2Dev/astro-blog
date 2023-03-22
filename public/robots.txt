@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://paul2d.dev/sitemap-0.xml

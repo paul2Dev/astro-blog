@@ -5,8 +5,9 @@ import tailwind from '@astrojs/tailwind';
 import partytown from "@astrojs/partytown";
 import robotsTxt from 'astro-robots-txt';
 import vue from "@astrojs/vue";
-
 import svelte from "@astrojs/svelte";
+
+// https://astro.build/config
 
 // https://astro.build/config
 export default defineConfig({
@@ -21,7 +22,13 @@ export default defineConfig({
       wrap: true
     }
   },
-  integrations: [mdx(), robotsTxt(), sitemap(), tailwind({
+  integrations: [
+    mdx(), 
+    robotsTxt(), 
+    sitemap([
+      'https://paul2d.dev/sitemap-0.xml'
+    ]), 
+    tailwind({
     config: {
       applyBaseStyles: false
     }
@@ -32,5 +39,4 @@ export default defineConfig({
     }
   }), svelte()],
   site: 'https://paul2d.dev' // base: '/astro-blog',
-
 });

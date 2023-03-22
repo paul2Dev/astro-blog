@@ -23,7 +23,7 @@
     "@vueuse/core": "^9.10.0",
     "astro": "^1.9.1",
     "astro-icon": "^0.7.3",
-    "astro-robots-txt": "^0.3.11",
+    "astro-robots-txt": "^0.3.12",
     "autoprefixer": "^10.4.13",
     "fuse.js": "^6.6.2",
     "postcss": "^8.4.21",
