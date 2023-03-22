@@ -24,10 +24,12 @@ export default defineConfig({
   },
   integrations: [
     mdx(), 
-    robotsTxt(), 
-    sitemap([
-      'https://paul2d.dev/sitemap-0.xml'
-    ]), 
+    robotsTxt({
+      sitemap: [
+        'https://paul2d.dev/sitemap-0.xml'
+      ],
+    }), 
+    sitemap(), 
     tailwind({
     config: {
       applyBaseStyles: false
