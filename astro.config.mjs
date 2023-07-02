@@ -26,7 +26,7 @@ export default defineConfig({
     mdx(), 
     robotsTxt({
       sitemap: [
-        'https://paul2d.dev/sitemap-0.xml'
+        '/sitemap-0.xml'
       ],
     }), 
     sitemap(), 
@@ -40,5 +40,6 @@ export default defineConfig({
       forward: ["dataLayer.push"]
     }
   }), svelte()],
-  site: 'https://paul2d.dev' // base: '/astro-blog',
+  //site: 'https://paul2d.dev' 
+  base: '/astro-blog/',
 });
