@@ -24,11 +24,7 @@ export default defineConfig({
   },
   integrations: [
     mdx(), 
-    robotsTxt({
-      sitemap: [
-        '/sitemap-0.xml'
-      ],
-    }), 
+    robotsTxt(), 
     sitemap(), 
     tailwind({
     config: {
